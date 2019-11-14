@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>ตั้งค่าที่ตั้ง Api</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label>Protocol</ion-label>
+            <ion-select placeholder="Select protocol" [(ngModel)]="protocol" [disabled]="isConnect">
+                <ion-select-option value="http:">http://</ion-select-option>
+                <ion-select-option value="https:">https://</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Server</ion-label>
+            <ion-input type="text" [(ngModel)]="server" [disabled]="isConnect"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input type="text" [(ngModel)]="name" [disabled]="isConnect"></ion-input>
+        </ion-item>
+    </ion-list>
+    <div class="result">ผลลัพธ์ :</div>
+    <p class="display">{{ protocol }}//{{ server }}{{ name }}</p>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="ion-no-padding">
+                <ion-button *ngIf="isConnect==false" size="large" color="secondary" expand="block" shape="round"
+                    (click)="check()">
+                    <ion-icon slot="start" name="repeat"></ion-icon>
+                    ตรวจสอบ
+                </ion-button>
+                <ion-button *ngIf="isConnect==true" size="large" color="danger" expand="block" shape="round"
+                    (click)="edit()">
+                    <ion-icon slot="start" name="close"></ion-icon>
+                    แก้ไข
+                </ion-button>
+            </ion-col>
+            <ion-col class="ion-no-padding">
+                <ion-button [disabled]="!isConnect" size="large" color="tertiary" expand="block" shape="round"
+                    (click)="submit()">
+                    <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+                    ยืนยัน
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

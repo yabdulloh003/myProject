@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>
+            ผู้ใช้งาน
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <ion-item>
+        <ion-label>
+            ชื่อผู้ใช้งาน
+        </ion-label>
+        <ion-note slot="end">{{ session.user.username }}</ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-label>
+            ชื่อ - นามสกุล
+        </ion-label>
+        <ion-note slot="end">{{ session.user.user_name }} {{ session.user.user_lname }}</ion-note>
+    </ion-item>
+    <ion-item>
+        <ion-label>
+            เพศ
+        </ion-label>
+        <ion-note slot="end">{{ session.user.gender_name }}</ion-note>
+    </ion-item>
+    <ion-button color="danger" class="ion-margin-top" expand="block" (click)="logout()">
+        <ion-icon slot="start" name="log-out"></ion-icon>
+        ออกจากระบบ
+    </ion-button>
+</ion-content>

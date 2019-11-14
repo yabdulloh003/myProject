@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>รายละเอียดโครงการ</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="loadData()">
+                <ion-icon slot="icon-only" name="sync"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <div class="image">
+        <img *ngIf="project.project_image" src="{{ session.api }}{{ project.project_image }}">
+        <img *ngIf="!project.project_image" src="assets/images/image.png">
+    </div>
+    <div class="item">
+        <div class="item-title">ชื่อโครงการ</div>
+        <div class="item-detail">{{ project.project_name }}</div>
+    </div>
+    <div class="item">
+        <div class="item-title">รายละเอียดโครงการ</div>
+        <div class="item-detail">{{ project.project_detail }}</div>
+    </div>
+    <div class="item">
+        <div class="item-title">วันที่จัดโครงการ</div>
+        <div class="item-detail">{{ project.project_date }}</div>
+    </div>
+    <div class="item">
+        <div class="item-title">งบประมาณ</div>
+        <div class="item-detail">{{ project.project_amount|number:'1.2-2' }} บาท</div>
+    </div>
+</ion-content>

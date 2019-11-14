@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>เพิ่มโครงการ</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <div class="image">
+        <img *ngIf="project.project_image" src="{{ session.api }}{{ project.project_image }}">
+        <img *ngIf="!project.project_image" src="assets/images/image.png">
+    </div>
+    <div class="ion-text-center">
+        <ion-button fill="clear" (click)="selectImage()">เลือกรูป</ion-button>
+    </div>
+    <ion-item>
+        <ion-label position="floating">ชื่อโครงการ</ion-label>
+        <ion-input [(ngModel)]="project.project_name"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">รายละเอียด</ion-label>
+        <ion-textarea [(ngModel)]="project.project_detail"></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">วันที่จัดโครงการ</ion-label>
+        <ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="project.project_date">
+        </ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">งบประมาณโครงการ</ion-label>
+        <ion-input [(ngModel)]="project.project_amount"></ion-input>
+    </ion-item>
+    <ion-row>
+        <ion-col>
+            <ion-button expand="block" (click)="add()" color="tertiary" [disabled]="!validate()">
+                <ion-icon slot="start" name="add"></ion-icon>
+                เพิ่มโครงการ
+            </ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button expand="block" color="light" (click)="reset()">
+                <ion-icon slot="start" name="close"></ion-icon>
+                ล้างข้อมูล
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>
+            หน้าแรก
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <h2>Native Plugin</h2>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6" class="menu-item" (click)="openCamera()">
+                <img class="menu-image" src="assets/images/camera.png">
+                <div class="menu-name">กล้องถ่ายรูป</div>
+            </ion-col>
+            <ion-col size="6" class="menu-item" (click)="openScan()">
+                <img class="menu-image" src="assets/images/barcode.png">
+                <div class="menu-name">สแกนบาร์โค้ด</div>
+            </ion-col>
+            <ion-col size="6" class="menu-item" (click)="openInappbrowser()">
+                <img class="menu-image" src="assets/images/web.png">
+                <div class="menu-name">เปิด www.yru.ac.th</div>
+            </ion-col>
+            <ion-col size="6" class="menu-item" (click)="openCall()">
+                <img class="menu-image" src="assets/images/call.png">
+                <div class="menu-name">โทร.0910451096</div>
+            </ion-col>
+            <ion-col size="6" class="menu-item" (click)="openFingerprint()">
+                <img class="menu-image" src="assets/images/fingerprint.png">
+                <div class="menu-name">สแกนลายนิ้วมือ</div>
+            </ion-col>
+            <ion-col size="6" class="menu-item" (click)="openGps()">
+                <img class="menu-image" src="assets/images/gps.png">
+                <div class="menu-name">ค้นหา GPS</div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

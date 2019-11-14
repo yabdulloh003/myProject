@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>
+            โครงการ
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="loadData()">
+                <ion-icon slot="icon-only" name="sync"></ion-icon>
+            </ion-button>
+            <ion-button (click)="add()">
+                <ion-icon slot="icon-only" name="add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+    <ion-toolbar color="tertiary">
+        <ion-searchbar [(ngModel)]="search" (ionChange)="loadData(false)" placeholder="ค้นหา..."></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="no-content" *ngIf="projects.length==0">
+        ไม่พบข้อมูลโครงการ
+    </div>
+    <ion-list *ngIf="projects.length>0">
+        <ion-item *ngFor="let project of projects">
+            <ion-thumbnail slot="start">
+                <img *ngIf="project.project_image" src="{{ session.api }}{{ project.project_image }}">
+                <img *ngIf="!project.project_image" src="assets/images/image.png">
+            </ion-thumbnail>
+            <ion-label>
+                <h3>{{ project.project_name }}</h3>
+                <p>{{ project.project_detail }}</p>
+                <p>งบประมาณ {{ project.project_amount|number:'1.2-2' }} บาท</p>
+            </ion-label>
+            <ion-buttons slot="end">
+                <ion-button (click)="open(project)" color="tertiary">
+                    <ion-icon slot="icon-only" name="arrow-round-forward"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-item>
+    </ion-list>
+</ion-content>
